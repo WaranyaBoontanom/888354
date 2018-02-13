@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Random Number For Answer</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(function() {
+
+        $("#Random").on('click', function() {
+          $('#Random1').text(Math.floor(Math.random() * 1000));
+          $('#Random2').text(Math.floor(Math.random() * 1000));
+          $('#Result').text("");
+        });
+        $("#submit").on('click', function() {
+          var result = parseInt($('#Random1').text()) + parseInt($('#Random2').text());
+          if($('#input').val() == result){
+            $('#Result').text("That's correct.");
+            $('#Result').css({"color": "green"});
+          }else{
+            $('#Result').text("That's wrong. The answer is "+ result);
+            $('#Result').css({"color": "red"});
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <center>
+    <h1>Randdom Number for Answer</h1>
+    <hr>
+    <input id="Random"  type="submit" value="Random Number">
+    <p> <span id="Random1"></span> + <span id="Random2"></span> = <input id="input" type="text" name="input" value=""></p>
+    <input id="submit" type="submit" value="Send answer">
+    <p>Result : <span id="Result"></span></p>
+  </center>
+</body>
+</html>
